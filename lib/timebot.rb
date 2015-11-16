@@ -11,20 +11,24 @@ require 'active_support/core_ext/string'
 
 TIME_ZONES = [
   'US/Pacific',
-  'US/Mountain',
   'US/Central',
-  'US/Eastern',
   'Europe/London',
-  'Europe/Madrid'
+  'Europe/Paris',
+  'Europe/Istanbul',
+  'Asia/Kolkata',
+  'Asia/Singapore',
+  'Asia/Tokyo'
 ]
 
 TRIGGER_MAP = {
   'US/Pacific' => %w(PDT PST PACIFIC P #P),
-  'US/Mountain' => %w(MDT MST MOUNTAIN M #M),
-  'US/Central' => %w(CDT CST CENTRAL C #C),
-  'US/Eastern' => %w(EDT EST EASTERN E #E),
-  'Europe/London' => %w(BST B #B L LONDON),
-  'Europe/Madrid' => %w(CEST CE #CE)
+  'US/Central' => %w(CDT CST CENTRAL MKE #MKE C #C),
+  'Europe/London' => %w(BST B #B L #L LONDON),
+  'Europe/Paris' => %w(CEST CE PARIS BUC #CE),
+  'Europe/Istanbul' => %w(EEST EE #EE),
+  'Asia/Kolkata' => %w(IST BLR #I),
+  'Asia/Singapore' => %w(SIN #S),
+  'Asia/Tokyo' => %w(TOK #T)
 }
 
 def do_times(phrase)
