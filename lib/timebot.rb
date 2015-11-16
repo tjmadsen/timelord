@@ -27,7 +27,7 @@ TRIGGER_MAP = {
   'Europe/Paris' => %w(CEST CE PARIS BUC #CE),
   'Europe/Istanbul' => %w(EEST EE #EE),
   'Asia/Kolkata' => %w(IST BLR #I),
-  'Asia/Singapore' => %w(SIN #S),
+  'Asia/Singapore' => %w(SIN #SIN #S),
   'Asia/Tokyo' => %w(TOK #T)
 }
 
@@ -52,6 +52,20 @@ def do_times(phrase)
     Chronic.time_class = Time.zone
     time = Chronic.parse(phrase)
     if time
+      puts "Parsed: #{phrase} -> #{time.strftime('%I:%M%P')} #{time.zone}"
+      times = []
+      TIME_ZONES.each do |zone|
+        z = TZInfo::Timezone.get(zone)
+        local_time = time.in_time_zone(z)
+        times << "#{local_time.strftime('%I:%M%P')} #{local_time.zone}"
+      end
+      message = "> #{times.join(' | ')}"
+      
+      h = time.strftime('%I')
+      h = h[1] if h.start_with?('0')
+      emoji = ":clock#{h}:"
+    else
+      time = Time.zone.now
       puts "Parsed: #{phrase} -> #{time.strftime('%I:%M%P')} #{time.zone}"
       times = []
       TIME_ZONES.each do |zone|
