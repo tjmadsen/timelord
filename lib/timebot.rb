@@ -21,13 +21,13 @@ TIME_ZONES = [
 ]
 
 TRIGGER_MAP = {
-  'US/Pacific' => %w(PDT PST PACIFIC SF P #P),
+  'US/Pacific' => %w(PDT PST PACIFIC SF SFO P #P),
   'US/Central' => %w(CDT CST CENTRAL MKE MILWAUKEE #MKE C #C),
   'Europe/London' => %w(BST B #B L #L LONDON),
-  'Europe/Paris' => %w(CEST CE PARIS BUC #CE),
+  'Europe/Paris' => %w(CEST CE PARIS BUC KRAKOW KRK #CE),
   'Europe/Istanbul' => %w(EEST INSTANBUL EE #EE),
-  'Asia/Kolkata' => %w(IST BLR #BLR BANGALORE BENGALURU #I),
-  'Asia/Singapore' => %w(SIN SINGAPORE #SIN #S),
+  'Asia/Kolkata' => %w(IST BLR #BLR BANGALORE BENGALURU HYD HYDERABAD MUMBAI #I),
+  'Asia/Singapore' => %w(SIN SINGAPORE BEIJING SHANGHAI PVG PEK SH BJ #SIN #S),
   'Asia/Tokyo' => %w(TOK #T)
 }
 
